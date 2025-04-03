@@ -17,8 +17,6 @@ let prediction = [];
 let label = "wait";
 let isClassifying = false;
 
-// 카메라 설정 관련 변수 제거: facingMode 제거
-
 let connectBluetoothButton, disconnectBluetoothButton;
 let modelSelect, modelInput, initializeModelButton, stopClassifyButton;
 
@@ -31,7 +29,7 @@ const modelList = {
 let isSendingData = false;
 
 function setup() {
-  let canvas = createCanvas(256, 256); // Teachable Machine 모델 입력 크기와 일치
+  let canvas = createCanvas(256, 256); 
   canvas.parent('p5-container');
   canvas.style('border-radius', '20px');
 
@@ -46,7 +44,7 @@ function setupCamera() {
       height: 256
     }
   });
-  video.size(256, 256); // 카메라 입력 크기 조정
+  video.size(256, 256); 
   video.hide();
 }
 
@@ -191,13 +189,12 @@ function startClassification() {
 async function classifyPose() {
   if (!isClassifying) return;
 
-  // 미러링된 비디오를 보정하여 원본(미러링되지 않은) 상태로 모델에 전달
   let tempCanvas = document.createElement('canvas');
   tempCanvas.width = 256;
   tempCanvas.height = 256;
   let tempCtx = tempCanvas.getContext('2d');
-  tempCtx.translate(256, 0); // 미러링 보정
-  tempCtx.scale(-1, 1);     // 미러링 보정
+  tempCtx.translate(256, 0); 
+  tempCtx.scale(-1, 1);    
   tempCtx.drawImage(video.elt, 0, 0, 256, 256);
 
   const { pose: detectedPose, posenetOutput } = await model.estimatePose(tempCanvas);
@@ -224,7 +221,6 @@ function stopClassification() {
 }
 
 function draw() {
-  // 비디오를 미러링된 상태로 표시 (사용자에게 거울 모드 제공)
   push();
   translate(width, 0);
   scale(-1, 1);
@@ -233,13 +229,11 @@ function draw() {
 
   if (pose) {
     const minPartConfidence = 0.5;
-    // 스켈레톤을 좌우 반전하여 원본 좌표계로 표시
     push();
-    translate(width, 0); // 미러링된 좌표계에서 시작
-    scale(-1, 1);       // 비디오와 동일한 미러링 적용
-    // 스켈레톤을 반전하여 원본 좌표계로 변환
-    translate(width, 0); // 추가 반전
-    scale(-1, 1);       // 추가 반전
+    translate(width, 0); 
+    scale(-1, 1);       
+    translate(width, 0); 
+    scale(-1, 1);       
     tmPose.drawKeypoints(pose.keypoints, minPartConfidence, drawingContext);
     tmPose.drawSkeleton(pose.keypoints, minPartConfidence, drawingContext);
     pop();
