@@ -84,8 +84,8 @@ main {
 }
 
 .canvas-container {
-  width: 256px; /* 변경: 400px에서 256px로 조정 */
-  height: 256px; /* 변경: 300px에서 256px로 조정 */
+  width: 256px; 
+  height: 256px; 
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -101,8 +101,8 @@ main {
 
 canvas {
   display: block;
-  width: 256px; /* 변경: 400px에서 256px로 조정 */
-  height: 256px; /* 변경: 300px에서 256px로 조정 */
+  width: 256px; 
+  height: 256px; 
 }
 
 .controls {
@@ -239,7 +239,6 @@ select, input {
   font-weight: 500;
 }
 
-/* 스마트폰 가로 화면 최적화 */
 @media only screen and (orientation: landscape) and (max-width: 900px) {
   main {
     flex-direction: column;
@@ -247,8 +246,8 @@ select, input {
   }
 
   .canvas-container {
-    width: 256px; /* 변경 */
-    height: 256px; /* 변경 */
+    width: 256px; 
+    height: 256px; 
   }
 
   .controls {
@@ -284,15 +283,14 @@ select, input {
   }
 }
 
-/* 세로 화면 최적화 */
 @media only screen and (max-width: 600px) and (orientation: portrait) {
   main {
     flex-direction: column;
   }
 
   .canvas-container {
-    width: 256px; /* 변경 */
-    height: 256px; /* 변경 */
+    width: 256px; 
+    height: 256px; 
   }
 
   .controls {
@@ -325,7 +323,6 @@ select, input {
   }
 }
 
-/* PC 와이드 화면 최적화 */
 @media only screen and (min-width: 901px) {
   main {
     flex-direction: row;
@@ -336,8 +333,8 @@ select, input {
   }
 
   .canvas-container {
-    width: 256px; /* 변경 */
-    height: 256px; /* 변경 */
+    width: 256px; 
+    height: 256px; 
   }
 
   .controls {
