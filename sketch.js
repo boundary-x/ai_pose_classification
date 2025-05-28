@@ -23,7 +23,7 @@ let modelSelect, modelInput, initializeModelButton, stopClassifyButton;
 const modelList = {
   "🧘앉기 |🧍일어서기": "r8wsgg5mm",
   "🙆O |🙅X": "YKdY8lyAQ",
-  "🙋 팔모양": "XbM9YMIYT"
+  "🙋 팔모양": "Q5Ur108ke"
 };
 
 let isSendingData = false;
